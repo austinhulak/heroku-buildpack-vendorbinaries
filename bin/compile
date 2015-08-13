@@ -17,11 +17,10 @@ cd $1
 
 echo "this i a test to see if it reads before the loop" | indent
 while read url; do
-  echo "this i a test to see if it reads the file" | indent
   echo $url | indent
   if [ -n "$url" ]; then # incase ensure_newline_at_eof_on_save is enabled
     echo "Vendoring $url" | indent
-
+    filename="${url##*/}"
     # extension="${url##*.}" # http://stackoverflow.com/q/965053
     # flag="-z" # by default use gz
     # if [ "$extension" == "xz" ]; then flag="--xz"
@@ -30,6 +29,6 @@ while read url; do
     # fi
 
     # curl -L --silent $url | tar x $flag
-    curl -L $url
+  curl -L $url -o $filename 
   fi
 done < .vendor_urls
