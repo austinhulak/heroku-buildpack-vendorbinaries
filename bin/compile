@@ -15,8 +15,10 @@ fi
 
 cd $1
 
+echo "this i a test to see if it reads before the loop" | indent
 while read url; do
-  echo Vendoring $url | indent
+  echo "this i a test to see if it reads the file" | indent
+  echo $url | indent
   if [ -n "$url" ]; then # incase ensure_newline_at_eof_on_save is enabled
     echo "Vendoring $url" | indent
 
