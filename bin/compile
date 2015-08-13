@@ -2,7 +2,7 @@
 
 
 indent() {
-  sed -u 's/^/       /'
+  sed 's/^/       /'
 }
 
 echo "-----> Found a .vendor_urls file"
@@ -27,6 +27,6 @@ while read url; do
     # fi
 
     # curl -L --silent $url | tar x $flag
-    curl -L --silent $url
+    curl -L $url
   fi
 done < .vendor_urls
