@@ -16,8 +16,9 @@ fi
 cd $1
 
 while read url; do
+  echo Vendoring $url | indent
   if [ -n "$url" ]; then # incase ensure_newline_at_eof_on_save is enabled
-    echo Vendoring $url | indent
+    echo "Vendoring $url" | indent
 
     # extension="${url##*.}" # http://stackoverflow.com/q/965053
     # flag="-z" # by default use gz
